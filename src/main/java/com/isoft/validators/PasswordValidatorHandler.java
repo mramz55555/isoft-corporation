@@ -1,6 +1,4 @@
-package com.isoft.validators.classes;
-
-import com.isoft.validators.annotations.PasswordValidator;
+package com.isoft.validators;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

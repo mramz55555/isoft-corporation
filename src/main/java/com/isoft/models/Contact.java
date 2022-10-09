@@ -3,7 +3,6 @@ package com.isoft.models;
 import com.isoft.services.ContactService;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,7 +10,6 @@ import javax.validation.constraints.Size;
 
 @Getter
 @Setter
-@ToString(includeFieldNames = false, doNotUseGetters = true)
 @Table(name = "contact_message")
 @Entity
 public class Contact extends BaseInfo {

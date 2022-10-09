@@ -35,8 +35,8 @@ public class LoginController {
 //            model.addAttribute("errors", errorMessage);
 //        }
 
-        if (register != null && register.equals(true))
-            errorMessage = "Registration successful! You are already logged in";
+        if (register != null && register.equals("true"))
+            errorMessage = "Registration successful! Now you can log in";
         if (error != null && error.equals("true"))
             errorMessage = "The username or password is incorrect";
 

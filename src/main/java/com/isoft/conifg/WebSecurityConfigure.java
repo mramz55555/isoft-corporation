@@ -1,25 +1,29 @@
 package com.isoft.conifg;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 
-    public static final String USER_ROLE = "USER";
-    public static final String ADMIN_ROLE = "ADMIN";
-//    public static final String ANONYMOUS_ROLE = "anonymous";
+    public static final String CUSTOMER = "CUSTOMER";
+    public static final String ADMIN = "ADMIN";
 
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("Ahmad").password("123").roles(USER_ROLE).and()
-                .withUser("Hossein").password("456").roles(ADMIN_ROLE).and()
-                .passwordEncoder(NoOpPasswordEncoder.getInstance());
-    }
+    //
+//    @Override
+//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.authenticationProvider(authProvider);
+    //        auth.inMemoryAuthentication()
+//                .withUser("Ahmad").password("123").roles(CUSTOMER_ROLE).and()
+//                .withUser("Hossein").password("456").roles(ADMIN_ROLE).and()
+//                .passwordEncoder(NoOpPasswordEncoder.getInstance());
+//        auth.authenticationProvider()
+//    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -33,9 +37,12 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 //                .regexMatchers("/?(home(.html)?/?)?").authenticated()
 //                .mvcMatchers("/h2-console/**").permitAll()
+                .mvcMatchers("/admin/**").hasRole(ADMIN)
+                .mvcMatchers("/submitChanges").authenticated()
+                .mvcMatchers("/displayProfile").authenticated()
                 .mvcMatchers("/h2-console/**").permitAll()
                 .mvcMatchers("/public/**").permitAll()
-                .mvcMatchers("/displayMessages").hasRole(ADMIN_ROLE)
+                .mvcMatchers("/displayMessages").hasRole(ADMIN)
                 .mvcMatchers("/dashboard").authenticated()
                 .mvcMatchers("/home").permitAll()
                 .mvcMatchers("/apps").permitAll()
@@ -46,7 +53,13 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true")
                 .and().logout().permitAll()
                 .logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true)
-                .and().httpBasic();
-        http.headers().frameOptions().disable();
+                .and()
+                .httpBasic();
+//        http.headers().frameOptions().disable();
+    }
+
+    @Bean
+    public PasswordEncoder getEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

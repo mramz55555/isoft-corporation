@@ -15,15 +15,15 @@ import javax.validation.constraints.Size;
 public class BaseInfo extends BaseEntity {
 
     @Size(min = 3, message = "name's length should be at least 3")
-    private String name;
+    protected String name;
 
     @NotBlank(message = "email should not be blank")
     @Email(message = "Please provide a valid email address")
-    private String email;
+    protected String email;
 
     @NotBlank(message = "mobile number should not be blank")
     @Pattern(regexp = "^$|09[0-9]{9}", message = "Mobile number is not valid (just Iran's format is valid)")
-    private String mobileNum;
+    protected String mobileNum;
 
 
 }

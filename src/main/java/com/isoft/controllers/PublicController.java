@@ -4,7 +4,7 @@ import com.isoft.models.User;
 import com.isoft.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -25,10 +25,13 @@ public class PublicController {
     }
 
     @PostMapping("createUser")
-    public String createUser(@Valid @ModelAttribute("newUser") User newUser, Errors result) {
+    public String createUser(@Valid @ModelAttribute("newUser") User newUser, BindingResult result) {
         if (result.hasErrors())
             return "register";
-        return "redirect:login?register=true";
+        if (!service.saveUser(true, newUser, result))
+            return "register";
+//        authProvider.authenticate(authentication);
+        return "redirect:/login?register=true";
 
     }
 }

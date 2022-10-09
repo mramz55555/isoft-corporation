@@ -18,6 +18,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController(APPS).setViewName(APPS);
         registry.addViewController(ABOUT).setViewName(ABOUT);
         registry.addViewController(OFFERS).setViewName(OFFERS);
-        registry.addViewController("displayMessages").setViewName("messages");
     }
+
 }

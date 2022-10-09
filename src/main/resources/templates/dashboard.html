@@ -38,7 +38,8 @@
     <div class="container py-md-5 py-4">
         <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
             <h3 class="title-style" th:text="${'Welcome - ' + #authentication.name}"></h3>
-            <p class="title-style" th:text="${'You logged in as - ' + #authentication.authorities}"></p>
+            <p class="title-style"
+               th:text="${'You logged in as - ' + (#authentication.authorities+'').substring(6,(#authentication.authorities+'').indexOf(']'))}"></p>
         </div>
 
     </div>
@@ -50,6 +51,22 @@
     <div class="section__content section__content--p30">
         <div class="container-fluid">
             <div class="row m-t-25">
+                <div class="col-sm-6 col-lg-3">
+                    <a th:href="@{/displayProfile}">
+                        <div class="overview-item overview-item--c4">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Profile</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
                 <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href="@{/displayMessages}">
                         <div class="overview-item overview-item--c3">
@@ -60,6 +77,38 @@
                                     </div>
                                     <div class="text">
                                         <h2>Messages</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a th:href="@{/admin/displayBusinesses}">
+                        <div class="overview-item overview-item--c1">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Business</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a th:href="@{/admin/displayApps}">
+                        <div class="overview-item overview-item--c2">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Apps</h2>
                                     </div>
                                 </div>
                             </div>
