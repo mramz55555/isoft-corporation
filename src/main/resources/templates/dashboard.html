@@ -40,6 +40,7 @@
             <h3 class="title-style" th:text="${'Welcome - ' + #authentication.name}"></h3>
             <p class="title-style"
                th:text="${'You logged in as - ' + (#authentication.authorities+'').substring(6,(#authentication.authorities+'').indexOf(']'))}"></p>
+               <p sec:authorize="hasRole('CUSTOMER')" th:text="'Your business -' + ${enrolledBusiness}"></p>
         </div>
 
     </div>
@@ -67,8 +68,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a th:href="@{/displayMessages}">
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ADMIN')">
+                    <a th:href="@{/displayMessages/page/1?sortField=createdAt&sortDir=desc}">
                         <div class="overview-item overview-item--c3">
                             <div class="overview__inner">
                                 <div class="overview-box clearfix">
@@ -83,7 +84,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ADMIN')">
                     <a th:href="@{/admin/displayBusinesses}">
                         <div class="overview-item overview-item--c1">
                             <div class="overview__inner">
@@ -99,7 +100,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ADMIN')">
                     <a th:href="@{/admin/displayApps}">
                         <div class="overview-item overview-item--c2">
                             <div class="overview__inner">
@@ -115,6 +116,23 @@
                         </div>
                     </a>
                 </div>
+                <div class="col-sm-6 col-lg-3" sec:authorize="hasRole('ROLE_CUSTOMER')">
+                    <a th:href="@{/customer/displayApps}">
+                        <div class="overview-item overview-item--c2">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope-open-text"></i>
+                                    </div>
+                                    <div class="text">
+                                        <h2>Apps</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
             </div>
         </div>
     </div>

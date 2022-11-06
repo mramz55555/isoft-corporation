@@ -41,10 +41,9 @@ public class OfferController {
 //                new Offer(35, LocalDate.of(2023, 1, 1), "eid noroz", Offer.Type.FESTIVAL)
 //        );
 
-
         for (Type type : Type.values())
             model.addAttribute(type.name(), offers.stream().filter(offer -> offer.getType().equals(type)).
                     sorted(Comparator.comparing(Offer::getDate)).collect(Collectors.toList()));
         return "offers";
     }
-}
+            }

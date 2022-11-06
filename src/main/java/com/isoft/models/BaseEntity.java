@@ -1,5 +1,6 @@
 package com.isoft.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter
@@ -19,6 +21,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
+@JsonIgnoreProperties({"createdBy", "createdAt", "updatedAt", "updatedBy"})
 public class BaseEntity {
     @Id
     @Column(name = "id")
@@ -26,14 +29,18 @@ public class BaseEntity {
     protected int id;
     @CreatedBy
     @Column(updatable = false)
-    private String createdBy;
+    protected String createdBy;
     @LastModifiedBy
     @Column(insertable = false)
-    private String updatedBy;
+    protected String updatedBy;
     @CreatedDate
     @Column(updatable = false)
-    private LocalDateTime createdAt;
+    protected LocalDateTime createdAt;
     @LastModifiedDate
     @Column(insertable = false)
-    private LocalDateTime updatedAt;
+    protected LocalDateTime updatedAt;
+
+    public String getLocalDate() {
+        return createdAt.format(DateTimeFormatter.ofPattern("MMM dd,uuuu"));
+    }
 }

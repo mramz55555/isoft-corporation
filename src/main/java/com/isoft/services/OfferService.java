@@ -4,6 +4,7 @@ import com.isoft.models.Offer;
 import com.isoft.repositories.OfferRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class OfferService {
         this.repository = repository;
     }
 
+    @Transactional
     public List<Offer> getOffers() {
         List<Offer> offers = new ArrayList<>();
         repository.findAll().forEach(offers::add);

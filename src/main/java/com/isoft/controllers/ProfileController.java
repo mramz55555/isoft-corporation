@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-@Controller
+@Controller("Isoft-profile-controller")
 public class ProfileController {
     private final UserService service;
     private User user;

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Isoft - our applications</title>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Style link -->
+    <link href="/assets/css/style-starter.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- header -->
+<div th:replace="fragements/header :: header">...</div>
+<!-- //header -->
+
+<!-- inner banner -->
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-4 pb-sm-4">
+            <h4 class="inner-text-title pt-5">Apps</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a th:href="@{/home}">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right"></i>Applications</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- //inner banner -->
+
+<!-- courses section -->
+<div class="w3l-grids-block-5 py-5">
+    <div class="container py-md-5 py-4">
+        <div class="title-main text-center mx-auto mb-md-5 mb-4" style="max-width:500px;">
+            <p class="text-uppercase">Best Apps</p>
+            <h3 class="title-style">See our successful programs</h3>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6">
+                <div class="coursecard-single">
+                    <div class="grids5-info position-relative">
+                        <!--<img src="assets/images/c1.jpg" alt="" class="img-fluid" />-->
+                        <div class="meta-list">
+                            <a>Education</a>
+                        </div>
+                    </div>
+                    <div class="content-main-top">
+                        <div class="content-top mb-4 mt-3">
+                            <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                <li><i class="fas fa-book-open"></i> 12 Apps</li>
+                                <li><i class="fas fa-star"></i> 4.9</li>
+                            </ul>
+                        </div>
+                        <h4><a>Educational Programs</a></h4>
+                        <p>Educations programmes includes data structure , linear algebra and calculus.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
+                <div class="coursecard-single">
+                    <div class="grids5-info position-relative">
+                        <!--<img src="assets/images/c2.jpg" alt="" class="img-fluid" />-->
+                        <div class="meta-list">
+                            <a class="sec-2">E-commerce</a>
+                        </div>
+                    </div>
+                    <div class="content-main-top">
+                        <div class="content-top mb-4 mt-3">
+                            <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                <li><i class="fas fa-book-open"></i> 27 Apps</li>
+                                <li><i class="fas fa-star"></i> 4.6</li>
+                            </ul>
+                        </div>
+                        <h4><a>Best E-commerce programs</a></h4>
+                        <p>This apps allow people to buy and sell physical goods,
+                            services. Amazon is an example of our products.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
+                <div class="coursecard-single">
+                    <div class="grids5-info position-relative">
+                        <!--<img src="assets/images/c3.jpg" alt="" class="img-fluid" />-->
+                        <div class="meta-list">
+                            <a class="sec-3">CRM</a>
+                        </div>
+                    </div>
+                    <div class="content-main-top">
+                        <div class="content-top mb-4 mt-3">
+                            <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                <li><i class="fas fa-book-open"></i> 14 Apps</li>
+                                <li><i class="fas fa-star"></i> 5.0</li>
+                            </ul>
+                        </div>
+                        <h4><a>CRM Programs</a></h4>
+                        <p> CRM programs connect your different departments, from marketing to sales to customer
+                            service.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-4">
+                <div class="coursecard-single">
+                    <div class="grids5-info position-relative">
+                        <!-- <img src="assets/images/c4.jpg" alt="" class="img-fluid" />-->
+                        <div class="meta-list">
+                            <a href="apps.html">Development</a>
+                        </div>
+                    </div>
+                    <div class="content-main-top">
+                        <div class="content-top mb-4 mt-3">
+                            <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                <li><i class="fas fa-book-open"></i> 23 Apps</li>
+                                <li><i class="fas fa-star"></i> 5.0</li>
+                            </ul>
+                        </div>
+                        <h4><a>Developer helper Programs</a></h4>
+                        <p>Programs that make programming easier for developers with the help of artificial
+                            intelligence.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-4">
+                <div class="coursecard-single">
+                    <div class="grids5-info position-relative">
+                        <!--<img src="assets/images/c5.jpg" alt="" class="img-fluid" />-->
+                        <div class="meta-list">
+                            <a class="sec-2">Audio & Multimedia</a>
+                        </div>
+                    </div>
+                    <div class="content-main-top">
+                        <div class="content-top mb-4 mt-3">
+                            <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                <li><i class="fas fa-book-open"></i> 40 Apps</li>
+                                <li><i class="fas fa-star"></i> 4.6</li>
+                            </ul>
+                        </div>
+                        <h4><a href="apps.html">Best Video and audio editor</a></h4>
+                        <p>The most specialized video and photo editing programs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mt-4">
+                <div class="coursecard-single">
+                    <div class="grids5-info position-relative">
+                        <!--<img src="assets/images/c6.jpg" alt="" class="img-fluid" />-->
+                        <div class="meta-list">
+                            <a class="sec-3">Design Apps</a>
+                        </div>
+                    </div>
+                    <div class="content-main-top">
+                        <div class="content-top mb-4 mt-3">
+                            <ul class="list-unstyled d-flex align-items-center justify-content-between">
+                                <li><i class="fas fa-book-open"></i> 20 Apps</li>
+                                <li><i class="fas fa-star"></i> 4.8</li>
+                            </ul>
+                        </div>
+                        <h4><a>Painting Programs</a></h4>
+                        <p>Art & Design programmes for the expert designers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //courses section -->
+
+<!-- footer block -->
+<div th:replace="fragements/footer :: footer">...</div>
+<!-- //footer block -->
+
+<!-- Js scripts -->
+<!-- move top -->
+<button id="movetop" onclick="topFunction()" title="Go to top">
+    <span aria-hidden="true" class="fas fa-level-up-alt"></span>
+</button>
+<script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("movetop").style.display = "block";
+        } else {
+            document.getElementById("movetop").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<!-- //move top -->
+
+<!-- common jquery plugin -->
+<script src="/assets/js/jquery-3.3.1.min.js"></script>
+<!-- //common jquery plugin -->
+
+<!-- theme switch js (light and dark)-->
+<script src="/assets/js/theme-change.js"></script>
+<!-- //theme switch js (light and dark)-->
+
+<!-- MENU-JS -->
+<script>
+    $(window).on("scroll", function () {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+</script>
+<!-- //MENU-JS -->
+
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
+            $('body').toggleClass('noscroll');
+        })
+    });
+</script>
+<!-- //disable body scroll which navbar is in active -->
+
+<!-- bootstrap -->
+<script src="/assets/js/bootstrap.min.js"></script>
+<!-- //bootstrap -->
+<!-- //Js scripts -->
+</body>
+
+</html>

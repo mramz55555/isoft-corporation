@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UserService {
     private final RoleRepository roleRepository;
@@ -23,6 +25,7 @@ public class UserService {
         this.encoder = encoder;
     }
 
+    @Transactional
     public boolean saveUser(boolean emailChanged, User user, BindingResult result) {
         if (emailExists(emailChanged, user, result))
             return false;
@@ -32,12 +35,12 @@ public class UserService {
         return savedUser != null && savedUser.getId() > 0;
     }
 
+    @Transactional
     public User save(boolean emailChanged, User user, BindingResult result) {
         if (emailExists(emailChanged, user, result))
             return null;
         return userRepository.save(user);
     }
-
 
     private boolean emailExists(boolean emailChanged, User user, BindingResult result) {
         if (emailChanged) {

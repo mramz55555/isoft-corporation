@@ -1,8 +1,10 @@
 package com.isoft.controllers;
 
+import com.isoft.models.User;
 import com.isoft.repositories.UserRepository;
 import com.isoft.security.UserPassAuthProvider;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,8 +20,10 @@ public class DashboardController {
     }
 
     @RequestMapping(value = "dashboard", method = {RequestMethod.GET, RequestMethod.POST})
-    public String showDashboard(HttpSession session/*Model model, Authentication authentication*/) {
-        session.setAttribute("loggedInUser", repository.getByEmail(UserPassAuthProvider.currEmail));
+    public String showDashboard(HttpSession session, Model model/*, Authentication authentication*/) {
+        User user = repository.getByEmail(UserPassAuthProvider.currEmail);
+        session.setAttribute("loggedInUser", user);
+        model.addAttribute("enrolledBusiness", user.getBusiness());
 //        model.addAttribute("username",authentication.getName());
 //        model.addAttribute("roles",authentication.getAuthorities());
 //        ((LoginController)context.getBean("loginController")).setLoggedOut(false);

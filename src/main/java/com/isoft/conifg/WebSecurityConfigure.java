@@ -12,6 +12,7 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 
     public static final String CUSTOMER = "CUSTOMER";
     public static final String ADMIN = "ADMIN";
+    public static final String ACTUATOR = "ACTUATOR";
 
     //
 //    @Override
@@ -32,12 +33,16 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 //                .mvcMatchers("/about").authenticated().and().formLogin().and().httpBasic();
 
 //        http.csrf().disable()
-        http.csrf().ignoringAntMatchers("/submitMsg", "/h2-console/**", "/public/**")
+        http.csrf().ignoringAntMatchers("/submitMsg", "/h2-console/**", "/public/**", "/api/**", "/rest-api/**", "/actuator/**")
                 .and()
                 .authorizeRequests()
 //                .regexMatchers("/?(home(.html)?/?)?").authenticated()
 //                .mvcMatchers("/h2-console/**").permitAll()
+                .mvcMatchers("/actuator/**").hasRole(ACTUATOR)
+                .mvcMatchers("/rest-api/**").authenticated()
+                .mvcMatchers("/api/**").authenticated()
                 .mvcMatchers("/admin/**").hasRole(ADMIN)
+                .mvcMatchers("/customer/**").hasRole(CUSTOMER)
                 .mvcMatchers("/submitChanges").authenticated()
                 .mvcMatchers("/displayProfile").authenticated()
                 .mvcMatchers("/h2-console/**").permitAll()
@@ -55,7 +60,7 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true)
                 .and()
                 .httpBasic();
-//        http.headers().frameOptions().disable();
+//        http.headers().frameOptions().disable();  --> for h2 database
     }
 
     @Bean
