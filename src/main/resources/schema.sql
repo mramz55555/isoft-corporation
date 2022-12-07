@@ -113,30 +113,28 @@ create table app_user
 
 
 
-#
 use `isoft-db`;
-#
-#
+
 CREATE TABLE student
 (
     id   int PRIMARY KEY,
     name varchar(30) default ''
 );
-#
-# insert into student (id,name) values(1,'ali');
-#
-insert into student (id,name) values(2,'mohammad');
-#
-insert into student (id,name) values(3,'zamani');
-#
-insert into student (id,name) values(4,'hassan');
-#
-insert into student (id,name) values(5,'hossein');
-#
-insert into student (id,name) values(6,'ahmad');
-#
-#
-#
+
+insert into student (id, name)
+values (1, 'ali');
+insert into student (id, name)
+values (2, 'mohammad');
+insert into student (id, name)
+values (3, 'zamani');
+insert into student (id, name)
+values (4, 'hassan');
+insert into student (id, name)
+values (5, 'hossein');
+insert into student (id, name)
+values (6, 'ahmad');
+
+
 CREATE TABLE course
 (
     id         int PRIMARY KEY,
@@ -144,68 +142,78 @@ CREATE TABLE course
     student_id int,
     foreign KEY (student_id) references student (id)
 );
-#
-#
+
 alter table student
-    # add column course_id int null after name,
-    # add constraint COURSE_ID_FK foreign key (course_id) references course(id);
+    add column course_id int null after name,
+    add constraint COURSE_ID_FK foreign key (course_id) references course (id);
+
+insert into course (id, name, student_id)
+values (1, 'a', 1);
+
+insert into course (id, name, student_id)
+values (2, 'b', 1);
+
+insert into course (id, name, student_id)
+values (3, 'c', 2);
+
+insert into course (id, name, student_id)
+values (4, 'd', 3);
+
+insert into course (id, name, student_id)
+values (5, 'e', 4);
+
+insert into course (id, name, student_id)
+values (6, 'f', 4);
+
+insert into course (id, name, student_id)
+values (7, 'a', 5);
+
+insert into course (id, name, student_id)
+values (8, 'a', 5);
+
+insert into course (id, name, student_id)
+values (9, 'a', 6);
+
+insert into course (id, name, student_id)
+values (10, 'a', 6);
+
+insert into course (id, name, student_id)
+values (11, 'a', 6);
+
+
+# select *
+# from student
+# update student
+# set course_id=1
+# where id = 1;
 #
-# insert into course (id,name,student_id) values (1,'a',1);
+# update student
+# set course_id=1
+# where id = 1;
 #
-insert into course (id,name,student_id) values (2,'b',1);
+# update student
+# set course_id=1
+# where id = 1;
 #
-insert into course (id,name,student_id) values (3,'c',2);
+# update student
+# set course_id=1
+# where id = 1;
 #
-insert into course (id,name,student_id) values (4,'d',3);
+# update student
+# set course_id=1
+# where id = 1;
 #
-insert into course (id,name,student_id) values (5,'e',4);
+# update student
+# set course_id=1
+# where id = 1;
 #
-insert into course (id,name,student_id) values (6,'f',4);
+# update student
+# set course_id=1
+# where id = 1;
 #
-insert into course (id,name,student_id) values (7,'a',5);
-#
-insert into course (id,name,student_id) values (8,'a',5);
-#
-insert into course (id,name,student_id) values (9,'a',6);
-#
-insert into course (id,name,student_id) values (10,'a',6);
-#
-insert into course (id,name,student_id) values (11,'a',6);
-#
-#
-select *
-from student # #
-update student
-set course_id=1
-where id = 1;
-#
-update student
-set course_id=1
-where id = 1;
-#
-update student
-set course_id=1
-where id = 1;
-#
-update student
-set course_id=1
-where id = 1;
-#
-update student
-set course_id=1
-where id = 1;
-#
-update student
-set course_id=1
-where id = 1;
-#
-update student
-set course_id=1
-where id = 1;
-#
-update student
-set course_id=1
-where id = 1;
+# update student
+# set course_id=1
+# where id = 1;
 
 
 
