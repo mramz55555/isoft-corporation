@@ -10,9 +10,9 @@ insert into offer (`value`, `date`, `reason`, `type`, `created_at`, `created_by`
 values (35, '2023-1-1', 'eid noroz', 'FESTIVAL', now(), 'DBA');
 
 insert into role (name, created_at, created_by)
-values ('ADMIN', curdate(), 'DBA');
+values ('ROLE_ADMIN', curdate(), 'DBA');
 insert into role(name, created_at, created_by)
-values ('CUSTOMER', curdate(), 'DBA');
+values ('ROLE_CUSTOMER', curdate(), 'DBA');
 insert into User (name, email, mobile_number, password, role_id, created_at, created_by)
 values ('admin', 'mramz55555@gmail.com', '09199658784', '$2a$10$Ct7Pwoo5zirXT8uYqiaIDe2fmQAHyOvteBDQWMa2NWxcEdCQ9Ek1e',
         1, curdate(), 'DBA');
