@@ -13,9 +13,10 @@ Isoft is a portfolio website, and in addition, it is hoped that future applicati
 
 -mysql username and password are in the application.properties file
 
-**How to run?**
-
 -You do not need to have maven installed on your computer (mvnw will automatically find and download the proper version for you)
+
+
+**How to run?**
 
 1-download the project files and extract them.
 
