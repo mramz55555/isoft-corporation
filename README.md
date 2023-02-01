@@ -6,4 +6,15 @@
 
 Isoft is a portfolio website, and in addition, it is hoped that future applications will be included in it.
 
-## How to use it?
+## How to use?
+**important** : 
+
+-maven ,java and mysql are required to run this application.
+
+-mysql username and password are in the application.properties file
+
+1-download the project files and extract them. In the command line type: "mvn clean install".
+
+2-In the target folder in cmd type java -jar 'file name.jar'.
+
+3-Open your browser and go to the addresss http://localhost:8080
