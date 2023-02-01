@@ -18,7 +18,7 @@ Isoft is a portfolio website, and in addition, it is hoped that future applicati
 
 **How to run?**
 
-1-download the project files and extract them.
+1-download the project file and extract it.
 
 2-In the target folder in cmd type ./mvnw package and then ./mvnw spring-boot:run  
 
