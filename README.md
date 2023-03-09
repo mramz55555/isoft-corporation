@@ -6,10 +6,10 @@
 
 Isoft is a portfolio website, and in addition, it is hoped that future applications will be included in it.
 
-## How to use?
+
 **important** : 
 
--java and mysql are required to run this application.
+-java and mysql are required to run this application.(isoft_db database is placed on this page also-just simply import it in MySQL)
 
 -mysql username and password are in the application.properties file
 
