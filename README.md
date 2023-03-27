@@ -4,7 +4,7 @@
 ## What is isoft?
 
 
-Isoft is a portfolio website, and in addition, it is hoped that future applications will be included in it.
+Isoft is a portfolio website, and in addition, future applications may also be included.
 
 
 **important** : 
